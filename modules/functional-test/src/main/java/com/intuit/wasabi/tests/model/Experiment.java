@@ -57,6 +57,9 @@ public class Experiment extends ModelItem {
     /** The description/hypothesis. Optional. */
     public String description;
 
+    /** The precision of the experiment hypothesis. Optional. */
+    public String hypothesisIsCorrect;
+
     /** The results. Optional. */
     public String results;
 
@@ -290,6 +293,17 @@ public class Experiment extends ModelItem {
     }
 
     /**
+     * Sets whether the hypothesis of the experiment was correct and returns this instance. Allows for builder patterns.
+     *
+     * @param hypothesisIsCorrect the description
+     * @return this
+     */
+    public Experiment setHypothesisIsCorrect(String hypothesisIsCorrect) {
+        this.hypothesisIsCorrect = hypothesisIsCorrect;
+        return this;
+    }
+
+    /**
      * Sets the results and returns this instance. Allows for builder patterns.
      *
      * @param results the results
@@ -405,7 +419,7 @@ public class Experiment extends ModelItem {
      * @param isPersonalizationEnabled enable the personalization
      * @return this
      */
-    public Experiment setIsPersonalizationEnabled (Boolean isPersonalizationEnabled) {
+    public Experiment setIsPersonalizationEnabled(Boolean isPersonalizationEnabled) {
         this.isPersonalizationEnabled = isPersonalizationEnabled;
         return this;
     }
@@ -416,7 +430,7 @@ public class Experiment extends ModelItem {
      * @param modelName the model name
      * @return this
      */
-    public Experiment setModelName (String modelName) {
+    public Experiment setModelName(String modelName) {
         this.modelName = modelName;
         return this;
     }
@@ -427,7 +441,7 @@ public class Experiment extends ModelItem {
      * @param modelVersion the model version
      * @return this
      */
-    public Experiment setModelVersion (String modelVersion) {
+    public Experiment setModelVersion(String modelVersion) {
         this.modelVersion = modelVersion;
         return this;
     }

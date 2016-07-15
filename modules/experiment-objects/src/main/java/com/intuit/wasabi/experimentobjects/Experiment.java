@@ -63,6 +63,8 @@ public class Experiment implements Cloneable, ExperimentBase {
     private Double samplingPercent;
     @ApiModelProperty(value = "description/hypothesis of the experiment", required = false)
     private String description;
+    @ApiModelProperty(value = "defines whether the hypothesis of the experiment was correct", required = false)
+    private String hypothesisIsCorrect;
     @ApiModelProperty(value = "results of the experiment", required = false)
     private String results;
     @ApiModelProperty(value = "defines a user segment, i.e., if the rule validates to true, user is part of the segment", required = false)
@@ -134,6 +136,15 @@ public class Experiment implements Cloneable, ExperimentBase {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getHypothesisIsCorrect(){
+        return hypothesisIsCorrect;
+    }
+
+    public void setHypothesisIsCorrect(String hypothesisIsCorrect) {
+        this.hypothesisIsCorrect = hypothesisIsCorrect;
+    }
+
     public String getResults() {
         return results;
     }
@@ -267,6 +278,7 @@ public class Experiment implements Cloneable, ExperimentBase {
                 .append(creationTime)
                 .append(modificationTime)
                 .append(description)
+                .append(hypothesisIsCorrect)
                 .append(results)
                 .append(rule)
                 .append(samplingPercent)
@@ -299,6 +311,7 @@ public class Experiment implements Cloneable, ExperimentBase {
                 .append(creationTime, other.getCreationTime())
                 .append(modificationTime, other.getModificationTime())
                 .append(description, other.getDescription())
+                .append(hypothesisIsCorrect, other.getHypothesisIsCorrect())
                 .append(results, other.getResults())
                 .append(rule, other.getRule())
                 .append(samplingPercent, other.getSamplingPercent())
@@ -473,6 +486,7 @@ public class Experiment implements Cloneable, ExperimentBase {
             instance.creationTime = copyDate(other.creationTime);
             instance.modificationTime = copyDate(other.modificationTime);
             instance.description = other.description;
+            instance.hypothesisIsCorrect = other.hypothesisIsCorrect;
             instance.results = other.results;
             instance.rule = other.rule;
             instance.ruleJson = other.ruleJson;
